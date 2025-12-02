@@ -73,6 +73,7 @@ This also works on your PC with Chrome:
 * Nodejs 10 or higher
 * Web-Adapter with one instance running the same protocol (http or https) as the admin-adapter, socket.IO set to 'integrated' and 'Force Web-Sockets' disabled
     * If this stands in conflict to other adapters, simply add another instance with the above settings - iQontrol will search the best fitting web-adapter-instance and use it for communication
+	* **New:** You can now specify which web adapter instance iQontrol should bind to in the adapter settings (Options -> General Settings -> Web Instance). This allows you to run multiple iQontrol instances on different web adapter instances with different ports
 	* For connecting over *iobroker.pro-Cloud* both, admin- and web-adapter should be set to http (not https)
 
 * If you experience any problems, please have a look at the [troubleshooting](#troubleshooting) section at the end of this readme
@@ -1810,6 +1811,9 @@ This device has some special predefined size- and display-settings to show a tex
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (ChrMaass) **NEW**: Added ability to specify which web adapter instance iQontrol should bind to (Options -> General Settings -> Web Instance), allowing multiple adapter instances on different ports
+
 ### 3.0.0 (2024-10-21)
 - (mcm1957) Adapter has been moved to iobroker-community-adapter organisation.
 - (mcm1957) Adapter requires js-controller 5, admin 6 and node.js 20 now.
