@@ -188,6 +188,7 @@
     ]
   },
   "native": {
+    "webInstance": "",
     "demotoolbar": [
       {
         "commonName": "Home",
