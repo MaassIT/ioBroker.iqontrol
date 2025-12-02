@@ -7647,6 +7647,29 @@ async function load(settings, onChange) {
 	function loadOptions(){
 		$('.collapsible').collapsible();
 		
+		//Populate web instance dropdown
+		(function(){
+			var $webInstanceSelect = $('#webInstance');
+			$webInstanceSelect.html('<option value="">' + _("Auto-detect (default)") + '</option>');
+			
+			// Get all web adapter instances
+			if (typeof iobrokerObjects !== 'undefined') {
+				Object.keys(iobrokerObjects).forEach(function(id) {
+					if (id.match(/^system\.adapter\.web\.\d+$/)) {
+						var instanceNum = id.split('.').pop();
+						var obj = iobrokerObjects[id];
+						var name = 'web.' + instanceNum;
+						if (obj && obj.common) {
+							var port = obj.native && obj.native.port ? ' (Port: ' + obj.native.port + ')' : '';
+							name += port;
+						}
+						$webInstanceSelect.append('<option value="web.' + instanceNum + '">' + name + '</option>');
+					}
+				});
+			}
+			$webInstanceSelect.select();
+		})();
+		
 		//Fill Combobox for ChangeDeviceIcons with icons
 		//Default Icon
 		var optionsString = "[" + _("Default Icon") + ":]";
